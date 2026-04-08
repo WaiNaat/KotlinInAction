@@ -14,7 +14,18 @@
 
 **A) 김세진**
 
-- 답변...
+- 문법적으로는 가능하지만, 비정상 종료나 OOM 메모리 문제가 발생할 수 있음
+- `toList()`는 **최종 연산(Terminal Operation)**이며, 시퀀스의 모든 요소를 소비하여 리스트로 만들려고 시도합니다.
+- 무한 시퀀스는 끝이 없으므로 `toList()`는 계속해서 다음 요소를 찾고, 메모리는 가득 차 결국 `OutOfMemoryError`가 발생하거나 CPU가 무한 루프에 빠집니다.
+
+```kotlin
+val infiniteStep = generateSequence(1) { it + 1 }
+val stopPlease = infiniteStep.toList()  //무한 시퀀스
+
+// 반드시 take() 같은 함수로 제한을 두어야 합니다.
+val finiteList = infiniteStep.take(10).toList() 
+println(finiteList) // [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+```
 
 ---
 
@@ -51,6 +62,15 @@
 
 **A) 김세진**
 
-- 답변...
+- 더 짧은 쪽의 길이에 맞춰지며, 남는 요소는 버려집니다.
+- `zip`은 두 컬렉션의 인덱스를 맞추어 쌍(`Pair`)을 만들다가, 어느 한 쪽이라도 끝나면 즉시 종료됩니다.
+
+```kotlin
+val names = listOf("A", "B", "C", "D")
+val ages = listOf(20, 30)
+
+val paired = names.zip(ages)
+println(paired) // [(A, 20), (B, 30)] -> "C", "D"는 짝을 못 찾아서 버림
+```
 
 
