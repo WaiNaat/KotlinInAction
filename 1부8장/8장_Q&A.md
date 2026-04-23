@@ -20,7 +20,7 @@
 
 (김세진)
 
-### Q1) Any 와 Generic 차이
+### Q1) Any 와 Generic(T) 차이
 
 **A)**
 
