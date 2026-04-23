@@ -39,7 +39,7 @@
 
 (김승수)
 
-### Q1)
+### Q1) Kotlin의 List는 자바의 단순 Collection으로 변환된다. 왜 Java의 UnmodifiableCollection을 사용하지 않은 것인가?
 
 **A)**
 
@@ -48,7 +48,7 @@
 
 ---
     
-### Q2)
+### Q2) Nothing을 사용했던 경험이 있으신가요? Nothing은 정말 필요한 타입일까요?
 
 **A)**
 
