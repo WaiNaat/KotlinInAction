@@ -31,7 +31,13 @@ val username = user.username
 
 **A)김규**
 
-- 답변...
+- mutable
+  - 객체 자체는 변하지 않고, 내부 값을 직접 바꿈
+  - `plusAssign` 사용
+- immutable
+  - 연산 결과를 새로운 객체로 만든 후, 변수에 다시 할당
+  - `var` 일 경우에만 사용 가능
+  - `plus` 사용
 
 ---
     
@@ -59,7 +65,11 @@ val username = user.username
 
 **A)김규**
 
-- 답변...
+- `Any`에 이미 `operator fun equals`가 정의되어 있기 때문에 override 만 가능
+- 상속받은 함수가 확장 함수보다 우선순위가 높아서 `equals`는 확장함수로도 만들 수 없음
 
 + interface 에서는?
+  - interface 의 `plus` 같은 메서드를 구현할 때 구현체에서 `operator fun` 으로 할지 말지는 선택사항
+  - interface 에 operator로 정의되어 있었다면 필수지만, 그렇지 않은 경우에는 구현체에게 선택권한이 있음
+  - 일관성 유지를 위해서는 인터페이스 자체에 붙이거나 말거나 선택하는 것이 낫다고 생각합니다
 
