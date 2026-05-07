@@ -15,6 +15,8 @@ val email = user.email
 val username = user.username
 ```
 
+- 신규 제공되는 기능이라, 현재에는 크게 사용될 것 같진 않음.
+
 ---
 
 ### Q2) `lazy` 는 어떤 방식으로 thread-safe를 보장할까요? (p.418 관련)
@@ -56,8 +58,18 @@ val username = user.username
 
 **A)김세진**
 
+- 동시에 정의되어 있으면 compiler가:
+    - 새 객체를 반환해야 하는지 (plus)
+    - 내부 상태를 수정해야 하는지 (assign)
+- 명확히 판단하기 어려워질 수 있습니다.
+- 특히 mutable 객체에서 `plus()` 가 자기 자신 타입을 반환하면 모호성 문제가 발생할 수 있습니다.
 
-- 답변...
+이를 방지하려면:
+
+- immutable 객체 → `plus()`
+- mutable 객체 → `plusAssign()`
+- 처럼 역할을 명확히 분리하는 것이 좋습니다.
+- Kotlin 공식 가이드도 두 방식을 동시에 혼용하지 않는 것을 권장
 
 ---
     
