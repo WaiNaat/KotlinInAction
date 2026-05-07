@@ -23,7 +23,7 @@ val username = user.username
 
 **A)김승수**
 
-- 답변...
+- lazy 프로퍼티를 처음 초기화 하는시점에 lock을 잡아 하나의 쓰레드에서만 초기화를 할 수 있게 보장한다.
 
 ---
 
@@ -48,7 +48,7 @@ val username = user.username
 **A)김승수**
 
 
-- 답변...
+- operator를 사용하지 않는 메소드와 사용하는 메서드의 이름이 같을 수 있기 때문에 명시적으로 operator 키워드를 강제화 하였습니다.
 
 ---
 
